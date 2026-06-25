@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curated photography gallery with category filters and fullscreen lightbox viewer">
+  <meta name="theme-color" content="#0c0d10">
+  <title>Dark Academia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#home">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="site-nav__inner">
+      <a class="brand" href="#home" aria-label="Lumina home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__name">Dark Academia</span>
+      </a>
+
+      <button type="button" class="site-nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu"
+        aria-label="Open menu">
+        <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+        <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+        <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <ul class="site-nav__menu" id="nav-menu">
+        <li><a class="site-nav__link is-active" href="#home">Home</a></li>
+        <li><a class="site-nav__link" href="#pictures">Picture</a></li>
+        <li><a class="site-nav__link" href="#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="site-header" id="home">
+    <div class="site-header__inner">
+      <div class="hero">
+        <p class="hero__eyebrow">Curated collection</p>
+        <h1 class="hero__title">Discover photography<br><em>worth framing</em></h1>
+        <p class="hero__lead">
+          A hand-picked gallery of nature, architecture, people, and abstract work.
+          Filter by mood, then open any frame in fullscreen.
+        </p>
+
+        <dl class="hero__stats" aria-label="Gallery statistics">
+          <div class="hero__stat">
+            <dt>Photos</dt>
+            <dd id="stat-total">12</dd>
+          </div>
+          <div class="hero__stat">
+            <dt>Showing</dt>
+            <dd id="stat-visible">12</dd>
+          </div>
+          <div class="hero__stat">
+            <dt>Categories</dt>
+            <dd>4</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    <div class="site-header__glow" aria-hidden="true"></div>
+  </header>
+
+  <main class="main-content" id="main-content">
+    <section class="gallery-section" id="pictures" aria-labelledby="gallery-heading">
+      <div class="gallery-section__head">
+        <h2 id="gallery-heading" class="gallery-section__title">Explore the collection</h2>
+        <p class="gallery-section__hint" id="gallery-hint">Use arrow keys in fullscreen view</p>
+      </div>
+
+      <nav class="filter-bar" aria-label="Filter gallery by category">
+        <div class="filter-bar__inner" role="tablist" id="filter-list">
+          <!-- Filter buttons injected by JS -->
+        </div>
+      </nav>
+
+      <ul class="gallery" id="gallery" aria-live="polite">
+        <!-- Gallery items injected by JS -->
+      </ul>
+
+      <div class="gallery-empty hidden" id="gallery-empty" role="status">
+        <span class="gallery-empty__icon" aria-hidden="true">◇</span>
+        <p>No images match this category.</p>
+        <button type="button" class="gallery-empty__reset" id="reset-filter">Show all photos</button>
+      </div>
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="about-heading">
+      <div class="about-section__inner">
+        <p class="about-section__eyebrow">About Dark Academia</p>
+        <h2 id="about-heading" class="about-section__title">A gallery built for <em>exploration</em></h2>
+        <div class="about-section__grid">
+          <p>
+            Dark Academia is a curated photography showcase featuring nature, architecture, people, and abstract
+            imagery. Browse the grid, filter by category, and open any photo in a fullscreen lightbox with
+            keyboard navigation.
+          </p>
+          <p>
+            This project demonstrates responsive layout, smooth CSS transitions, and vanilla JavaScript—no
+            frameworks required. Perfect for portfolios, internships, and learning modern front-end basics.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <span class="brand__name">Dark Academia</span>
+        <p>Photography gallery demo — HTML, CSS &amp; JavaScript.</p>
+      </div>
+      <p class="site-footer__copy">&copy; 2026 Dark Academia Gallery. Images via Picsum Photos.</p>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption" aria-modal="true">
+    <div class="lightbox__backdrop" data-action="close"></div>
+    <div class="lightbox__content">
+      <header class="lightbox__toolbar">
+        <span class="lightbox__category" id="lightbox-category"></span>
+        <button type="button" class="lightbox__btn lightbox__btn--close" id="lightbox-close"
+          aria-label="Close lightbox">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </header>
+
+      <button type="button" class="lightbox__btn lightbox__btn--prev" id="lightbox-prev" aria-label="Previous image">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </button>
+
+      <figure class="lightbox__figure">
+        <div class="lightbox__image-wrap">
+          <img class="lightbox__image" id="lightbox-image" src="" alt="" width="800" height="600">
+        </div>
+        <figcaption class="lightbox__meta">
+          <p class="lightbox__caption" id="lightbox-caption"></p>
+          <p class="lightbox__counter" id="lightbox-counter" aria-live="polite"></p>
+        </figcaption>
+      </figure>
+
+      <button type="button" class="lightbox__btn lightbox__btn--next" id="lightbox-next" aria-label="Next image">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <path d="M9 18l6-6-6-6" />
+        </svg>
+      </button>
+
+      <p class="lightbox__keys" aria-hidden="true">
+        <kbd>←</kbd> <kbd>→</kbd> navigate · <kbd>Esc</kbd> close
+      </p>
+    </div>
+  </dialog>
+
+  <script src="gallery.js" defer></script>
+</body>
+
+</html>
