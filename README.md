@@ -1,6 +1,6 @@
 # 🖼️ Dark Academia — Image Gallery
 
- [Live Demo:] ()
+ [Live Demo:] (https://mukeshkkumar96-kalai.github.io/CodeAlpha_Image-Gallery/)
 
 ## Overview
 Dark Academia is a responsive photography gallery web app built with HTML, CSS, and vanilla JavaScript. It displays a curated set of images organized into categories, with category filtering, a fullscreen lightbox viewer, and keyboard navigation. The project is designed as a front-end portfolio piece demonstrating DOM manipulation, animation, and accessible UI patterns without any frameworks or libraries.
